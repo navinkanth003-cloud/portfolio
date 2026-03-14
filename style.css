@@ -225,6 +225,7 @@ h6 {
     margin-bottom: 24px;
     background: linear-gradient(to right, var(--text-main), var(--text-muted));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -336,12 +337,14 @@ h6 {
 
 /* Skills Section */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
 }
-
 .skill-category {
+    flex: 1 1 300px;
+    max-width: 350px;
     background: var(--bg-surface);
     padding: 32px;
     border-radius: var(--radius);
@@ -598,16 +601,120 @@ h6 {
     height: 18px;
 }
 
-/* Contact */
+/* Timeline Bullets */
+.timeline-bullets {
+    list-style: none;
+    padding: 0;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timeline-bullets li {
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.timeline-bullets li::before {
+    content: '\25B8';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+/* Achievements & Activities */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.achievement-card {
+    background: var(--bg-body);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.achievement-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-light);
+    background: var(--bg-surface);
+}
+
+.achievement-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.achievement-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+.achievement-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.97rem;
+}
+
+/* Contact Details Row */
+.contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    transition: var(--transition);
+    background: var(--bg-body);
+}
+
+.contact-item:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-subtle);
+    transform: translateY(-2px);
+}
+
+.contact-item i {
+    width: 18px;
+    height: 18px;
+}
+
+/* Contact Wrapper */
 .contact-wrapper {
     text-align: center;
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
     background: var(--bg-surface);
     padding: 60px 40px;
     border-radius: var(--radius);
     box-shadow: var(--shadow-lg);
 }
+
 
 .contact-text {
     font-size: 1.2rem;
